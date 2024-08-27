@@ -1,5 +1,5 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 import { MostroProps } from './mostro';
@@ -10,7 +10,7 @@ import { useProfile } from 'nostr-hooks';
 import { QuestionMarkCircledIcon } from '@radix-ui/react-icons';
 
 import BitcoinIconsSatoshiV1Outline from '~icons/bitcoin-icons/satoshi-v1-outline';
-import RandomAvatar from '../avatar';
+import RandomAvatar from '../random-avatar';
 
 export default function MostroCard(props: MostroProps) {
   const { profile } = useProfile({ pubkey: props.pubkey });
@@ -19,13 +19,13 @@ export default function MostroCard(props: MostroProps) {
   return (
     <Card key={props.pubkey} className="bg-card text-card-foreground">
       <CardHeader className="flex items-center gap-4">
-        <Avatar className="w-16 h-16">
-          <AvatarImage src={profile?.image} />
-          <AvatarFallback>
-            <RandomAvatar pubkey={props.pubkey} />
-          </AvatarFallback>
-        </Avatar>
-
+        {profile?.image ? (
+          <Avatar className="w-16 h-16">
+            <AvatarImage src={profile?.image} />
+          </Avatar>
+        ) : (
+          <RandomAvatar pubkey={props.pubkey} />
+        )}
         <div>
           <CardTitle>{truncateText(name, 20)}</CardTitle>
           <CardDescription>

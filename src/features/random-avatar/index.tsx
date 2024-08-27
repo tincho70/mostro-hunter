@@ -2,6 +2,7 @@
  * Inspired by: https://github.com/arokettu/monsterid
  */
 import React from 'react';
+import './RandomAvatar.css';
 
 type AvatarParts = {
   arms: string;
@@ -60,36 +61,36 @@ const RandomAvatar: React.FC<{ pubkey: string }> = ({
   console.log(pubkey, parts);
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%', backgroundColor: 'white' }}>
+    <div className="w-16 h-16 relative flex bg-slate-200 octagon">
       <img
         src={`/parts/${parts.body}`}
         alt="Body"
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        style={{ position: 'absolute', top: 0, left: 0 }}
       />
       <img
         src={`/parts/${parts.legs}`}
         alt="Legs"
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        style={{ position: 'absolute', top: 0, left: 0 }}
       />
       <img
         src={`/parts/${parts.arms}`}
         alt="Arms"
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        style={{ position: 'absolute', top: 0, left: 0 }}
       />
       <img
         src={`/parts/${parts.eyes}`}
         alt="Eyes"
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        style={{ position: 'absolute', top: 0, left: 0 }}
       />
       <img
         src={`/parts/${parts.hair}`}
         alt="Hair"
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        style={{ position: 'absolute', top: 0, left: 0 }}
       />
       <img
         src={`/parts/${parts.mouth}`}
         alt="Mouth"
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        style={{ position: 'absolute', top: 0, left: 0 }}
       />
     </div>
   );
