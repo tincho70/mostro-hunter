@@ -10,6 +10,7 @@ import { useProfile } from 'nostr-hooks';
 import { QuestionMarkCircledIcon } from '@radix-ui/react-icons';
 
 import BitcoinIconsSatoshiV1Outline from '~icons/bitcoin-icons/satoshi-v1-outline';
+import RandomAvatar from '../avatar';
 
 export default function MostroCard(props: MostroProps) {
   const { profile } = useProfile({ pubkey: props.pubkey });
@@ -18,9 +19,11 @@ export default function MostroCard(props: MostroProps) {
   return (
     <Card key={props.pubkey} className="bg-card text-card-foreground">
       <CardHeader className="flex items-center gap-4">
-        <Avatar>
+        <Avatar className="w-16 h-16">
           <AvatarImage src={profile?.image} />
-          <AvatarFallback>{name.substring(0, 2)}</AvatarFallback>
+          <AvatarFallback>
+            <RandomAvatar pubkey={props.pubkey} />
+          </AvatarFallback>
         </Avatar>
 
         <div>
