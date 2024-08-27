@@ -3,6 +3,7 @@ import { useSubscribe } from 'nostr-hooks';
 import Mostros from '@/features/mostros';
 import { MostroProps } from '@/features/mostros/mostro';
 import { eventToMostro } from '@/lib/mostro';
+import { Navbar } from '@/features';
 
 const filters = [
   {
@@ -36,8 +37,10 @@ export const HomeRoute = () => {
   if (!mostros.length) return <p>Loading...</p>;
 
   return (
-    <div>
+    <>
+      <Navbar />
+
       <Mostros mostros={mostros} />
-    </div>
+    </>
   );
 };

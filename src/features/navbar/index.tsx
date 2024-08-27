@@ -8,13 +8,12 @@ export const Navbar = () => {
     <>
       <div className="fixed top-0 w-full bg-black/10 backdrop-blur-lg z-10">
         <div className="px-4 py-2 flex items-center gap-2 ">
+          <div className="flex justify-center items-center">
+            <span className="font-bold text-2xl">Mostro Hunter</span>
+          </div>
           <div className="ml-auto flex gap-2">
             <Button variant="link" size="icon" asChild className="ml-8">
-              <a
-                href="https://github.com/unllamas/react-starter-kit"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://github.com/tincho70/mostro-hunter" target="_blank" rel="noreferrer">
                 <GitHubLogoIcon />
               </a>
             </Button>
