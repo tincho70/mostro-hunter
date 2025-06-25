@@ -58,7 +58,6 @@ const RandomAvatar: React.FC<{ pubkey: string }> = ({
   pubkey: string;
 }): JSX.Element => {
   const parts = getAvatarParts(pubkey);
-  console.log(pubkey, parts);
 
   return (
     <div className="w-16 h-16 relative flex bg-slate-200 octagon">
