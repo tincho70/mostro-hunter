@@ -10,6 +10,7 @@ const filters = [
     kinds: [38383],
     limit: 100,
     '#z': ['info'],
+    '#y': ['mostro'],
   },
 ];
 
@@ -21,11 +22,11 @@ export const HomeRoute = () => {
   useEffect(() => {
     if (newEvents && newEvents.length > 0) {
       setMostros((prevMostros: MostroProps[]) => {
-        const existingPubkeys = prevMostros.map((mostro) => mostro.pubkey);
+        const existingPubkeys = new Set(prevMostros.map((mostro) => mostro.pubkey));
 
         const filteredEvents = newEvents.filter((event) => {
-          const pubkey = event.tags.find((tag) => tag[0] === 'mostro_pubkey')?.[1];
-          return pubkey && !existingPubkeys.includes(pubkey);
+          //const pubkey = event.tags.find((tag) => tag[0] === 'mostro_pubkey')?.[1];
+          return event.pubkey && !existingPubkeys.has(event.pubkey);
         });
         const filteredMostros = filteredEvents.map((event) => eventToMostro(event));
 

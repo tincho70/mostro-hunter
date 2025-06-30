@@ -22,13 +22,20 @@ export const eventToMostro = (event: NDKEvent): MostroProps => {
     hold_invoice_expiration_window: '',
     hold_invoice_cltv_delta: '',
     invoice_expiration_window: '',
+    lnd_version: '',
+    lnd_node_pubkey: '',
+    lnd_commit_hash: '',
+    lnd_node_alias: '',
+    lnd_chains: '',
+    lnd_networks: '',
+    lnd_uris: '',
   };
   event.tags.map((tag) => {
     switch (tag[0]) {
       case 'mostro_version':
         mostro.version = tag[1];
         break;
-      case 'mostro_commit_id':
+      case 'mostro_commit_hash':
         mostro.commit_id = tag[1];
         break;
       case 'min_order_amount':
@@ -57,6 +64,28 @@ export const eventToMostro = (event: NDKEvent): MostroProps => {
         break;
       case 'invoice_expiration_window':
         mostro.invoice_expiration_window = tag[1];
+        break;
+
+      case 'lnd_version':
+        mostro.lnd_version = tag[1];
+        break;
+      case 'lnd_node_pubkey':
+        mostro.lnd_node_pubkey = tag[1];
+        break;
+      case 'lnd_commit_hash':
+        mostro.lnd_commit_hash = tag[1];
+        break;
+      case 'lnd_node_alias':
+        mostro.lnd_node_alias = tag[1];
+        break;
+      case 'lnd_chains':
+        mostro.lnd_chains = tag[1];
+        break;
+      case 'lnd_networks':
+        mostro.lnd_networks = tag[1];
+        break;
+      case 'lnd_uris':
+        mostro.lnd_uris = tag[1];
         break;
     }
   });
