@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import { queryConfig } from '@/lib/react-query';
+import { RelayProvider } from '@/components/nostr/relay-context';
 
 import { MainErrorFallback } from '@/components/errors/main';
 import { Spinner } from '@/components/ui/spinner';
@@ -33,7 +34,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
         <HelmetProvider>
           <QueryClientProvider client={queryClient}>
             {import.meta.env.DEV && <ReactQueryDevtools />}
-            {children}
+            <RelayProvider>{children}</RelayProvider>
           </QueryClientProvider>
         </HelmetProvider>
       </ErrorBoundary>

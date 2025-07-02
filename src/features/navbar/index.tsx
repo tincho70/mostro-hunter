@@ -2,6 +2,7 @@ import { GitHubLogoIcon } from '@radix-ui/react-icons';
 
 import { ModeToggle } from '@/components/mode-toggle';
 import { Button } from '@/components/ui/button';
+import { RelayStatus } from '@/components/nostr/relay-status';
 
 export const Navbar = () => {
   return (
@@ -12,6 +13,7 @@ export const Navbar = () => {
             <span className="font-bold text-2xl lilita-one-regular">Mostro Hunter</span>
           </div>
           <div className="ml-auto flex gap-2">
+            <RelayStatus />
             <Button variant="link" size="icon" asChild className="ml-8">
               <a href="https://github.com/tincho70/mostro-hunter" target="_blank" rel="noreferrer">
                 <GitHubLogoIcon />
