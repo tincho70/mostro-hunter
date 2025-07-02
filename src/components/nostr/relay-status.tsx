@@ -13,8 +13,8 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 
 export function RelayStatus() {
   const { ndk } = useNdk();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [update, setUpdate] = useState(0);
+
+  const [, setUpdate] = useState(0);
 
   useEffect(() => {
     const forceUpdate = () => setUpdate((u) => u + 1);
